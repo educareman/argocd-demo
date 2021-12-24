@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app.kubernete.io/name: loadbalancer-example
+  type: LoadBalancer
+  ports:
+  - name: loadbalancer-example
+    protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30000

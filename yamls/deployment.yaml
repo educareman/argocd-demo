@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  my-web
+  labels:
+    app.kubernete.io/name: loadbalancer-example
+spec: 
+  selector:
+    matchLabels:
+      app.kubernete.io/name: loadbalancer-example
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app.kubernete.io/name: loadbalancer-example
+    spec:
+      containers:
+      - name:  my-web
+        image:  docker.io/educaremann/capstone-image-1:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort:  80
+          name:  my-web
+      restartPolicy: Always
