@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app.kubernete.io/name: loadbalancer-example
-  replicas: 5
+  replicas: 7
   template:
     metadata:
       labels:
